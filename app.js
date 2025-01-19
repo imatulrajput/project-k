@@ -10,6 +10,9 @@ app.use(bodyParser.json());
 // Routes
 app.use("/api/auth", require("./routes/auth"));
 
+app.get('/', (req, res) => {
+  res.send('Render backend is running!');
+});
 // Connect to MongoDB
 mongoose
   .connect(process.env.DB_URL, {
