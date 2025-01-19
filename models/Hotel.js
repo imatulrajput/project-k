@@ -9,5 +9,5 @@ const HotelSchema = new mongoose.Schema({
     availableRoom: { type: Number, required: true },
     price: { type: Number, required: true },
 });
-s
-module.exports = mongoose.model("hotel", HotelSchema);
+
+module.exports = mongoose.model("Hotel", HotelSchema);
