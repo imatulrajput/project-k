@@ -1,6 +1,6 @@
 const Hotel = require("../models/Hotel")
 
-creatseHotel = async (req, res) => {
+const createHotel = async (req, res) => {
     try {
         const { name, phone, address, city, state, availableRoom, price } = req.body;
 
@@ -13,7 +13,7 @@ creatseHotel = async (req, res) => {
     }
 };
 
-getAllHotels = async (req, res) => {
+const getAllHotels = async (req, res) => {
     try {
         const hotels = await Hotel.find();
         res.status(200).json({ success: true, data: hotels });
@@ -22,7 +22,7 @@ getAllHotels = async (req, res) => {
     }
 };
 
-getHotelById = async (req, res) => {
+const getHotelById = async (req, res) => {
     try {
         const { id } = req.params;
         const hotel = await Hotel.findById(id);
@@ -34,8 +34,8 @@ getHotelById = async (req, res) => {
         res.status(500).json({ success: false, message: 'Error fetching hotel', error: error.message });
     }
 };
-s
-updateHotel = async (req, res) => {
+
+const updateHotel = async (req, res) => {
     try {
         const { id } = req.params;
         const updates = req.body;
@@ -49,8 +49,8 @@ updateHotel = async (req, res) => {
     }
 };
 
-deleteHotel = async (req, res) => {
-    try {s
+const deleteHotel = async (req, res) => {
+    try {
         const { id } = req.params;
         const deletedHotel = await Hotel.findByIdAndDelete(id);
         if (!deletedHotel) {
