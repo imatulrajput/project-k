@@ -9,7 +9,8 @@ app.use(bodyParser.json());
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
-app.use ("/api/hotel", require("./routes/hotel"))
+app.use("/api/hotel", require("./routes/hotel"))
+app.use("/api/bus", require("./routes/bus"))
 
 
 app.get('/', (req, res) => {
