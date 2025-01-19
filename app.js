@@ -9,6 +9,8 @@ app.use(bodyParser.json());
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
+app.use ("/api/hotel", require("./routes/hotel"))
+
 
 // Connect to MongoDB
 mongoose
