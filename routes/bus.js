@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const {
   createBus,
+  updateBus,
   addRouteToBus,
   getBusWithRoutes,
   updateRoute,
@@ -15,6 +16,7 @@ router.get("/search", searchBuses);
 
 // Bus routes
 router.post("/", createBus);
+router.put("/:busId",updateBus)
 router.get("/", getAllBusWithRoutes);
 router.get("/:busId", getBusWithRoutes);
 
