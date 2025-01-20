@@ -11,8 +11,12 @@ const RouteSchema = new mongoose.Schema({
       stopName: { type: String, required: true },
       arrivalTime: { type: String, required: true },
       departureTime: { type: String, required: true },
+      priceToNextStop: { type: Number, required: true }, // Price between stops
     },
   ],
+  startDate: { type: Date, required: true }, // Start of the active date range
+  endDate: { type: Date, required: true }, // End of the active date range
+  seatsAvailable: { type: Number, required: true }, // Seats available for this route
   createdAt: { type: Date, default: Date.now },
 });
 
