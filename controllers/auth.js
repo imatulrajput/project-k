@@ -36,12 +36,12 @@ const loginUser = async (req, res) => {
       }
     );
 
-    res
-      .status(200)
-      .json({
-        token,
-        user: { name: user.name, email: user.email, role: user.role },
-      });
+    const { password: userPassword, ...userData } = user;
+
+    res.status(200).json({
+      token,
+      user: userData,
+    });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
