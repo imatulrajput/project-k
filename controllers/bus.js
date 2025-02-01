@@ -14,6 +14,23 @@ const createBus = async (req, res) => {
   }
 };
 
+const updateBus = async (req, res) => {
+  try {
+    
+    const { busId } = req.params
+    const update = req.body;
+   
+    const updatebus = await Bus.findByIdAndUpdate(busId, update, { new: true });
+    if (!updatebus) {
+      return res.status(404).json({ success: false, message: 'Bus not found' });
+    }
+    res.status(200).json({ success: true, message: 'Bus updated successfully', data: updateBus });
+
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error updating Bus', error: error.message });
+
+  }
+}
 const isValidStop = (stop) => {
   return (
     stop.stopName &&
@@ -195,4 +212,4 @@ const searchBuses = async (req, res) => {
   }
 };
 
-module.exports = { createBus, addRouteToBus, getBusWithRoutes, updateRoute, deleteRoute, getAllBusWithRoutes, searchBuses };
+module.exports = { createBus, updateBus, addRouteToBus, getBusWithRoutes, updateRoute, deleteRoute, getAllBusWithRoutes, searchBuses };
